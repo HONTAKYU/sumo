@@ -15,7 +15,7 @@ test('[job] create', (assert) => {
     .then((data) => Job.create(data, query, from, to))
     .then((job) => {
       assert.equal(job.status.state, 'CREATING', 'started job in CREATING state');
-      assert.ok(/^https:\/\/api.sumologic.com\/api\/v1\/search\/jobs\//.test(job.searchJobId), 'job created with searchJobId');
+      assert.ok(/^https:\/\/api.us2.sumologic.com\/api\/v1\/search\/jobs\//.test(job.searchJobId), 'job created with searchJobId');
     })
     .catch((err) => assert.ifError(err, 'test failed'))
     .then(() => assert.end());
